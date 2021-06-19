@@ -13,7 +13,7 @@
     - name: remove the image
       command: docker rmi 956193147942.dkr.ecr.ap-south-1.amazonaws.com/nextjs:latest
       ignore_errors: yes
-
+  
     - name: docker pull
       command: docker pull 956193147942.dkr.ecr.ap-south-1.amazonaws.com/nextjs:latest
       ignore_errors: yes
