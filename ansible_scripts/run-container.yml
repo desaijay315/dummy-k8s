@@ -10,5 +10,10 @@
       command: docker rm nextjs-container
       ignore_errors: yes
 
+    - name: create the build
+      command: docker build -t nextjs .
+      args:
+        chdir: /opt/docker
+
     - name: create container using nextjs image
       command: docker run -d --name nextjs-container -p 8080:8080 nextjs
