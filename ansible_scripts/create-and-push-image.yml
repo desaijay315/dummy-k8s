@@ -4,9 +4,9 @@
 
   tasks:
     - name: ECR login
-      shell: "$(/usr/local/bin/aws ecr get-login --no-include-email --registry-ids 956193147942 --region ap-south-1)"
+      # shell: "/usr/local/bin/aws ecr get-login --no-include-email --registry-ids 956193147942 --region ap-south-1"
     #   # shell: " /usr/local/bin/aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 956193147942.dkr.ecr.ap-south-1.amazonaws.com"
-      # shell: "$(docker login -u AWS -p $(/usr/local/bin/aws ecr get-login-password --region ap-south-1) 956193147942.dkr.ecr.ap-south-1.amazonaws.com)"
+      shell: "docker login -u AWS -p $(/usr/local/bin/aws ecr get-login-password --region ap-south-1) 956193147942.dkr.ecr.ap-south-1.amazonaws.com"
 
     - name: Delete the latest image from the ECR
       shell: " /usr/local/bin/aws ecr batch-delete-image --repository-name nextjs --image-ids imageTag=latest"
